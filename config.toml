@@ -49,6 +49,7 @@
   description = """
   welcome to my basement
   my hobby is wasting time selfhosting
+  i promise i'll put more stuff on the site eventually
   """
 
   # Note: If you want to use a Markdown file, you can use the following
@@ -57,11 +58,9 @@
 
   [Params.Tree]
   use = true
-  folderName = "my_services"
+  folderName = "my_sites"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [
-    ["freshrss", "https://rss.0000727.xyz/"],
-    ["irc", "https://irc.0000727.xyz/"],
     ["blog", "https://blog.0000727.xyz"],
-    ["files", "http://files.0000727.xyz"],
+    ["youtube", "https://youtube.com/dicedmangoes"]
   ]
