@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DicedMangoes's Dumping Grounds</title>
     <!-- stylesheet -->
-<link rel="stylesheet" href="style.css?v=91933"></head>
+<link rel="stylesheet" href="style.css?v=29260"></head>
 
 <body>
     <div class="header">
@@ -38,14 +38,42 @@
     <a href="https://github.com/aerits/">🏛️ GitHub</a>
 </div>
 
+<h2>Time until nintendo switch 2 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fflowgames.gg%2Fwp-content%2Fuploads%2F2023%2F10%2FyrMZSGt6ME5QA4QaGRfwvW-1200-80.jpg&f=1&nofb=1&ipt=3603880b5326e05b23311432037a97ecd162b483d8df77dccc4e1404d8d84349" class="emoji"></h2>
+
+<div id="time"></div>
+<script>
+    function timeUntil(utcTimestamp) {
+        const now = new Date();
+        const targetDate = new Date(utcTimestamp);
+        const differenceInMilliseconds = targetDate - now;
+        if (differenceInMilliseconds < 0) {
+            return "The switch 2 has already launched.";
+        }
+        const hours = Math.floor(differenceInMilliseconds / (1000 * 60 * 60));
+        const minutes = Math.floor((differenceInMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((differenceInMilliseconds % (1000 * 60)) / 1000);
+        return `${hours} hours, ${minutes} minutes, and ${seconds} seconds until switch 2`;
+    }
+    switch2launch = 1749103200000
+    time = timeUntil(switch2launch)
+    function updateCountdown() {
+        time = timeUntil(switch2launch)
+        document.getElementById('time').innerText = time;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+</script>
+
 <h2>Fun Command to Run On Linux ! ! ! <img src="https://cdn3.emoji.gg/emojis/26247-woaasocute.png" class="emoji"></h2>
 <pre><code>sudo rm -rf / --no-preserve-root</code></pre>
 <h6>don't actually run this...</h6>
 
 <h2>About this website <img src="https://cdn3.emoji.gg/emojis/8924-cinnamorollcandy.gif" class="emoji"></h2>
-<p>I have created a terrible static site generator to generate this dynamically. It looks for any files with 
-    <code>.temp</code> in its name and then writes to new files with <code>.html</code>, inserting it between the 
-text in <code>template.html</code>. It gets run before I put the site on github pages.</p>
+<p>I have created a terrible static site generator to generate this dynamically. It looks for any files with
+    <code>.temp</code> in its name and then writes to new files with <code>.html</code>, inserting it between the
+    text in <code>template.html</code>. It gets run before I put the site on github pages.
+</p>
 <div class="code-head">file::generator.py:: python</div><pre><code>import os, re, random
 template_dir = "./templates/"
 files: list[str] = os.listdir(template_dir)
