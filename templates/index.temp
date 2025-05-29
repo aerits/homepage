@@ -4,7 +4,15 @@
 
 <h2>About Me <img src="https://cdn3.emoji.gg/emojis/91852-cinnamorollicecream.gif" alt="cinnamoroll ice cream gif"
         class="emoji"></h2>
-<p>Huge fan of mangoes, rhythm games, and linux.</p>
+<p>
+    Huge fan of mangoes, rhythm games, and linux.
+</p>
+<blockquote>
+    <p>
+        "Life is osu!game" - dicedmangoes
+    </p>
+</blockquote>
+
 
 <h2>Find me in other places <img src="https://cdn3.emoji.gg/emojis/71867-cinnamorollcelebrate.gif" class="emoji"></h2>
 <div class="links-container">
@@ -12,6 +20,10 @@
     <a href="https://www.novelupdates.com/viewlist/44780/">📕 Recommended Novels</a>
     <a href="https://github.com/aerits/">🏛️ GitHub</a>
 </div>
+
+<h2>Fun Command to Run On Linux ! ! ! <img src="https://cdn3.emoji.gg/emojis/26247-woaasocute.png" class="emoji"></h2>
+<pre><code>sudo rm -rf / --no-preserve-root</code></pre>
+<h6>don't actually run this...</h6>
 
 <h2>About this website <img src="https://cdn3.emoji.gg/emojis/8924-cinnamorollcandy.gif" class="emoji"></h2>
 <p>I have created a terrible static site generator to generate this dynamically. It looks for any files with 
