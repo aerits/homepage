@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('cinamorol.jpg');
+    background-size: 20%;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+code {
+    background-color: #eee;
+    border-radius: 10px;
+}
+pre {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0.1%;
+}
+
+.code-head {
+    background-color: #9e9aaa;
+    color: #eee;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #fdf2f8;
+    padding: 20px;
+    width: 800px;
+    max-width: 100%;
+    /* Optional: Control the maximum width */
+    margin: 0 auto;
+    /* Center the main content */
+}
+
+.header {
+    background-color: #e26b99;
+    color: #eee;
+    text-align: left;
+    padding: 1%;
+}
+
+.header-link {
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: #e26b99;
+    text-decoration: none;
+    padding: 0.5%;
+}
+
+.emoji {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3 {
+    color: #230969;
+    text-align: left;
+    /* Align headings to the left */
+    margin-top: 0;
+    /* Remove extra top margin */
+}
+
+h1 {
+    text-align: left;
+    /* Specifically align h1 to the left */
+    margin-top: 20px;
+}
+
+h2,
+h3 {
+    margin: 20px 0;
+}
+
+p {
+    text-align: left;
+    font-size: 1.1em;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Video styling */
+video {
+    width: 100%;
+    max-width: 640px;
+    /* Adjust the max width as needed */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Drop shadow */
+    display: block;
+    margin: 20px 0;
+    /* Space above and below the video */
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 20px 0;
+    /* Space above and below the video */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Drop shadow */
+}
+
+/* Additional styles for the embedded video */
+.embedded-video {
+    margin: 20px 0;
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Drop shadow */
+}

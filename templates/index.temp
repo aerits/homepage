@@ -1,0 +1,20 @@
+<h1>Welcome to DicedMangoes's Dumping Grounds</h1>
+<p>This is my personal website. Why am I using a pseudonym? Cuz I like mangoes.</p>
+<p>I paid so much incredible money for this domain name 0000727.xyz so like i need a website.</p>
+
+<h2>About Me <img src="https://cdn3.emoji.gg/emojis/91852-cinnamorollicecream.gif" alt="cinnamoroll ice cream gif"
+        class="emoji"></h2>
+<p>Huge fan of mangoes, rhythm games, and linux.</p>
+
+<h2>Find me in other places <img src="https://cdn3.emoji.gg/emojis/71867-cinnamorollcelebrate.gif" class="emoji"></h2>
+<div class="links-container">
+    <a href="https://youtube.com/dicedmangoes">📷 YouTube</a>
+    <a href="https://www.novelupdates.com/viewlist/44780/">📕 Recommended Novels</a>
+    <a href="https://github.com/aerits/">🏛️ GitHub</a>
+</div>
+
+<h2>About this website</h2>
+<p>I have created a terrible static site generator to generate this dynamically. It looks for any files with 
+    <code>.temp</code> in its name and then writes to new files with <code>.html</code>, inserting it between the 
+text in <code>template.html</code></p>
+<div class="code-head">file::generator.py:: python</div>
