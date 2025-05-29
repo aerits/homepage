@@ -1,5 +1,4 @@
-import os
-import re
+import os, re, random
 template_dir = "./templates/"
 files: list[str] = os.listdir(template_dir)
 temp_first: str = ""
@@ -9,6 +8,9 @@ with open(template_dir + "template.html", 'r') as file:
     for line in file:
         if toggle:
             temp_first += line
+            if "stylesheet" in line:
+                temp_first += '<link rel="stylesheet" href="style.css?v=' + str(random.randint(0, 99999)) + '">'
+                # prevent stylesheet from getting cached
         else:
             temp_last += line
         if "main-content" in line:

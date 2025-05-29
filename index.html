@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DicedMangoes's Dumping Grounds</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <!-- stylesheet -->
+<link rel="stylesheet" href="style.css?v=91933"></head>
 
 <body>
     <div class="header">
@@ -46,8 +46,7 @@
 <p>I have created a terrible static site generator to generate this dynamically. It looks for any files with 
     <code>.temp</code> in its name and then writes to new files with <code>.html</code>, inserting it between the 
 text in <code>template.html</code>. It gets run before I put the site on github pages.</p>
-<div class="code-head">file::generator.py:: python</div><pre><code>import os
-import re
+<div class="code-head">file::generator.py:: python</div><pre><code>import os, re, random
 template_dir = "./templates/"
 files: list[str] = os.listdir(template_dir)
 temp_first: str = ""
@@ -57,6 +56,9 @@ with open(template_dir + "template.html", 'r') as file:
     for line in file:
         if toggle:
             temp_first += line
+            if "stylesheet" in line:
+                temp_first += '&lt;link rel="stylesheet" href="style.css?v=' + str(random.randint(0, 99999)) + '"&gt;'
+                # prevent stylesheet from getting cached
         else:
             temp_last += line
         if "main-content" in line:
