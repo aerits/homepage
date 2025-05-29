@@ -24,12 +24,14 @@ def process_template(filename: str):
     with open(template_dir + filename, 'r') as file:
         for line in file:
             html_string += line
-            if "file::" in line and "code-head" in line: # insert files between file::<filename>:: if its specified in a div called codehead
+            if "file::" in line and "code-head" in line: 
+                # insert files between file::<filename>:: if its specified in a div called codehead
                 html_string += "<pre><code>"
                 path: str = find_text_between_delimiters(line)[0]
                 with open(path, 'r') as file2:
                     for l in file2:
-                        html_string += l.replace("<", "&lt;").replace(">", "&gt;") # replace <,> to be able to see html tags in literal files
+                        html_string += l.replace("<", "&lt;").replace(">", "&gt;") 
+                        # replace <,> to be able to see html tags in literal files
                 html_string += "</code></pre>"
     html_string += temp_last
 
