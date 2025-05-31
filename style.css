@@ -22,7 +22,7 @@ pre {
     word-wrap: break-word; /* Breaks long words if necessary */
 }
 
-.code-head {
+.block-head {
     background-color: #9e9aaa;
     color: #eee;
     padding: 5px;
