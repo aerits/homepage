@@ -1,10 +1,6 @@
-import os, re, random, subprocess
+import os, re, random
 
 template_dir = "./templates/"
-build_dir = "./build/"
-try: os.mkdir("build")
-except: print("dir already exists")
-subprocess.run(['cp', 'style.css', './build/'])
 files: list[str] = os.listdir(template_dir)
 temp_first: str = ""
 temp_last: str = ""
@@ -81,7 +77,7 @@ def process_template(filename: str):
                     data[-1] += line
     html_string += temp_last
 
-    with open(build_dir + filename[:-6] + "html", "w") as file:
+    with open(filename[:-6] + "html", "w") as file:
         file.write(html_string)
 
 
