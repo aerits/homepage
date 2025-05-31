@@ -56,7 +56,7 @@ def process_template(filename: str):
                             html_string += "...\nfile truncated"
                             break
                 html_string += "</code></pre>"
-            elif "END_SORTED_HEAD:" in line:
+            elif "END_SORTED_HEAD:" in line and flags[0] is True and 'class="block-head"' in line:
                 # this is starting to turn into a worse version of emacs org mode
                 flags[0] = False
                 data.sort()
