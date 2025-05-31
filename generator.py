@@ -1,8 +1,10 @@
-import os, re, random
+import os, re, random, subprocess
 
 template_dir = "./templates/"
 build_dir = "./build/"
-os.mkdir("build")
+try: os.mkdir("build")
+except: print("dir already exists")
+subprocess.run(['cp', 'style.css', './build/'])
 files: list[str] = os.listdir(template_dir)
 temp_first: str = ""
 temp_last: str = ""
