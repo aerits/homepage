@@ -2,6 +2,7 @@ import os, re, random
 
 template_dir = "./templates/"
 build_dir = "./build/"
+os.mkdir("build")
 files: list[str] = os.listdir(template_dir)
 temp_first: str = ""
 temp_last: str = ""
