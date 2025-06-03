@@ -1,3 +1,4 @@
 build/*
-*.html
 __pycache__
+*.html
+!*.t.html
