@@ -142,7 +142,7 @@ files: list[str] = os.listdir(template_dir)
 
 def iterate_through_files(dir: str, files: list[str]):
     for file_ in files:
-        if os.path.isdir(dir + file_):
+        if os.path.isdir(dir + file_) and file_[0] != "_":
             iterate_through_files(dir + file_ + "/", os.listdir(dir + file_))
         if ".t.html" in file_:
             process_template(dir, file_)
