@@ -36,12 +36,11 @@ def handle_macros(line: str, flags: list[bool]):
     if ">file::" in line:
         # insert files between file::<filename>:: if its specified in a div called codehead
         html_string += "<pre><code>"
-        path: str = find_text_between_delimiters(line)[0]
+        args = find_text_between_delimiters(line)
+        path: str = args[0]
         max_lines: int = -1
-        if "[" in line:
-            first = line.index("[") + 1
-            second = line.index("]")
-            max_lines = int(line[first:second])
+        if len(args) > 1:
+            max_lines = int(args[1])
         with open(path, "r") as file2:
             for l in file2:
                 html_string += l.replace("<", "&lt;").replace(">", "&gt;")

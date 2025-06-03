@@ -18,7 +18,7 @@
 </pre>
 <p>built files are placed in the root folder</p>
 <p><code>/templates</code> is where the meat goes</p>
-<p><code>.t.html</code> files are templates, any file with this in its name will be sandwhiched in 
+<p><code>.t.html</code> files are templates, any file with this in its name will be sandwhiched in
     <code>template.html</code> and placed inside of the main-content html tag
 </p>
 <ul>
@@ -26,33 +26,40 @@
         in the stylesheet for the page
     </li>
 </ul>
-<div class="block-head">file::./templates/template.html::[40] html</div>
+<div class="block-head">file::./templates/template.html::40:: html</div>
 
 <p>div class= "block-head" is for macros</p>
 <ul>
     <li>file macros
         <ul>
-            <li><code>file::(path to file)::[(max lines to place on page)]</code></li>
+            <li><code>file::(path to file)::(max lines to place on page)::</code></li>
+            <li>file has 2 args, the path and the max lines</li>
             <li>this is used above to show template.html</li>
         </ul>
     </li>
     <li>sorted block macros
         <ul>
-            <li>this sorts a region</li>
-            <li>see example 1</li>
-            <li>in a block-head div, <code>sorted::begin::</code> starts a sorted section 
-            and <code>sorted::end::</code> ends it</li>
-            <li>every root level html element in the sorted block must have
-                <b>class="sorted-element"</b> or else the script crashes
-            </li>
-            <li>this is useful for sorting dates</li>
-            <li>FOOTGUN: this sorts the entire line, including 
-                <code>&lt;p class=...&gt;</code></li>
+            <li><b>basic usage</b></li>
             <ul>
-                <li>custom sorts</li>
+                <li>this sorts a region</li>
+                <li>see example 1</li>
+                <li>in a block-head div, <code>sorted::begin::</code> starts a sorted section
+                    and <code>sorted::end::</code> ends it</li>
+                <li>every root level html element in the sorted block must have
+                    <b>class="sorted-element"</b> or else the script crashes
+                </li>
+                <li>this is useful for sorting dates</li>
+                <li>FOOTGUN: this sorts the entire line, including
+                    <code>&lt;p class=...&gt;</code>
+                </li>
+            </ul>
+
+            <li><b>custom sorts</b></li>
+            <ul>
+
                 <li><code>::"sort-command":"_list.(insert command)"::</code></li>
                 <li>this is a block-head argument, just like <code>::begin::</code>,
-                    you can chain them together like 
+                    you can chain them together like
                     <code>::begin::"sort-command"...</code>
                 </li>
                 <li>add this to the block-head, its json</li>
@@ -65,4 +72,4 @@
 </ul>
 
 <h2>example 1</h2>
-<div class="block-head">file::./templates/showerthoughts.t.html::[5]</div>
+<div class="block-head">file::./templates/showerthoughts.t.html::5::</div>
