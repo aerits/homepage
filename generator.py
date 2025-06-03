@@ -110,8 +110,8 @@ def process_template(dir: str, filename: str):
                     for c in commands:
                         line = eval(c)
                 elif line[0] == '?' and line[1] == '/':
-                    while not (line[-2] == '/' and line[-1] == '?'):
-                        line += file.readline().replace('\n', '')
+                    while not (line[-3] == '/' and line[-2] == '?' and line[-1] == '\n'):
+                        line += file.readline()
                     commands: list[str] = find_text_between_delimiters(line)
                     for c in commands:
                         line = eval(c)
