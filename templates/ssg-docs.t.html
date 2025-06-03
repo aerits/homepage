@@ -48,6 +48,18 @@
             <li>this is useful for sorting dates</li>
             <li>FOOTGUN: this sorts the entire line, including 
                 <code>&lt;p class=...&gt;</code></li>
+            <ul>
+                <li>custom sorts</li>
+                <li><code>::"sort-command":"_list.(insert command)"::</code></li>
+                <li>this is a block-head argument, just like <code>::begin::</code>,
+                    you can chain them together like 
+                    <code>::begin::"sort-command"...</code>
+                </li>
+                <li>add this to the block-head, its json</li>
+                <li>the sort command gets <code>eval(..)</code>ed in python</li>
+                <li>if you put invalid json it throws a runtime error</li>
+                <li>if you put a bad command for sort command it will crash</li>
+            </ul>
         </ul>
     </li>
 </ul>

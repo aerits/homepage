@@ -1,4 +1,4 @@
-import os, re, random
+import os, re, random, json
 
 template_dir = "./templates/"
 files: list[str] = os.listdir(template_dir)
@@ -24,14 +24,15 @@ with open(template_dir + "template.html", "r") as file:
 
 def find_text_between_delimiters(text: str) -> list[str]:
     # This regex will find all occurrences of text between ::
-    pattern = r"::(.*?)::"
+    pattern = r"::(.*?)(?=::)"
     matches = re.findall(pattern, text)
     return matches
 
-data: list[str] = []
+data: dict[str, list[str]] = {}
 flags = [False]
 def handle_macros(line: str, flags: list[bool]):
     html_string: str = ""
+
     if ">file::" in line:
         # insert files between file::<filename>:: if its specified in a div called codehead
         html_string += "<pre><code>"
@@ -50,21 +51,38 @@ def handle_macros(line: str, flags: list[bool]):
                     html_string += "...\nfile truncated"
                     break
         html_string += "</code></pre>"
+
     elif ">sorted::end::" in line and flags[0] is True:
         # this is starting to turn into a worse version of emacs org mode
         flags[0] = False
-        data.sort()
-        for l in data:
+        data["el"].sort()
+        if len(data["custom"]) > 0:
+            try:
+                json_data = json.loads("{" + data["custom"][0] + "}")
+            except:
+                raise RuntimeError("Bad json")
+            _list: list[str] = data["el"] # use _list in the sort command
+            eval(json_data["sort-command"])
+        for l in data["el"]:
             html_string += l
+        data.clear()
         html_string += line
     elif flags[0] is True or ">sorted::begin::" in line:
         flags[0] = True
         if 'class="sorted-element"' in line:
-            data.append(line)
+            data["el"].append(line)
         elif ">sorted::begin::" in line:
+            if len(data) > 0:
+                raise RuntimeError("Data already in use")
+            data["el"] = []
+            data["custom"] = []
+            args = find_text_between_delimiters(line)
+            if len(args) == 2:
+                data["custom"].append(args[1])
             return html_string
         else:
-            data[-1] += line
+            data["el"][-1] += line
+
     return html_string
 
 def process_template(filename: str):
