@@ -13,7 +13,6 @@ def get_posts() -> str:
             else:
                 posts[-1][1] += line
     output: str = ""
-    # posts.sort(reverse=True, key=sorter)
     for post_ in posts:
         output += post(post_[0], post_[1])
     return output
