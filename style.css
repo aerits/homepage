@@ -29,12 +29,20 @@ pre {
     border-radius: 10px;
 }
 
+.file-link {
+    background-color: #ffffff;
+    color: #ad5b99;
+    padding: 2px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 .main-content {
     flex: 1;
     background-color: #fdf2f8;
-    padding: 20px;
-    width: 800px;
-    max-width: 100%;
+    padding: 5%;
+    width: 50em;
+    max-width: 80%;
     /* Optional: Control the maximum width */
     margin: 0 auto;
     /* Center the main content */
@@ -49,7 +57,7 @@ pre {
 
 .header-link {
     background-color: aliceblue;
-    border-radius: 10px;
+    border-radius: 1em;
     color: #e26b99;
     text-decoration: none;
     padding: 0.5%;
@@ -59,6 +67,11 @@ pre {
     height: 2em;
     width: auto;
     vertical-align: middle;
+}
+
+img {
+    width: 100%; /* Makes the image take the full width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
 }
 
 blockquote {

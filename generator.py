@@ -34,14 +34,15 @@ data: dict[str, list[str]] = {}
 flags = [False]
 
 
-def handle_macros(line: str, flags: list[bool]):
-    html_string: str = ""
-
+def handle_macros(line: str, flags: list[bool], html_string: str):
     if ">file::" in line:
         # insert files between file::<filename>:: if its specified in a div called codehead
-        html_string += "<pre><code>"
         args = find_text_between_delimiters(line)
         path: str = args[0]
+        html_string = html_string[:-7]
+        html_string += " <a href=\"" + path + "\" class=\"file-link\">link to file</a></div>\n"
+        html_string += "<pre><code>"
+        
         max_lines: int = -1
         if len(args) > 1:
             max_lines = int(args[1])
@@ -132,7 +133,7 @@ def process_template(dir: str, filename: str):
                 elif sum(flags) > 1:
                     raise RuntimeError("Bad flags")
                 if sum(flags) == 1 or 'class="block-head"' in lin:
-                    html_string += handle_macros(lin, flags)
+                    html_string = handle_macros(lin, flags, html_string)
     html_string += temp_last
     with open(filename[:-6] + "html", "w") as file:
         file.write(html_string)
