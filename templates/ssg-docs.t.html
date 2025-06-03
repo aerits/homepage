@@ -72,4 +72,19 @@
 </ul>
 
 <h2>example 1</h2>
-<div class="block-head">file::./templates/showerthoughts.t.html::5::</div>
+<div class="block-head">file::./templates/examples/ssg-docs-example1.html::</div>
+
+<h1>advanced usage
+</h1>
+<p>custom python commands can be executed</p>
+<p>showerthoughts.py is imported and used</p>
+<p>custom is a global variable that can be anything</p>
+<p>here we set it to the post() function from showerthoughts.py so we can run that function</p>
+<div class="block-head">file::./templates/showerthoughts.py::</div>
+<div class="block-head">file::./templates/showerthoughts.t.html::10::</div>
+<ul>
+    <li>! is for exec-ing python code</li>
+    <li>? sets the current line in the .t.html to the output of the expression from eval()</li>
+    <li>?/ ... /? is a multiline ?</li>
+    <li>each of these has one argument encased in ::...:: which is the command to run</li>
+</ul>
