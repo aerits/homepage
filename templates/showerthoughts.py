@@ -1,5 +1,5 @@
 def post(date: str, content: str) -> str: 
-    return "<p class=\"sorted-element\">" + "<b>" + date + "</b>" + ": " + content + "</p>\n"
+    return "<p class=\"sorted-element\">" + "<b>" + date + "</b>" + ": " + content + "</p>\n<hr>\n"
 
 def sorter(e: list[str]):
     return e[0]
