@@ -95,25 +95,27 @@ sys.path.append('./templates')
 
 def process_line(line: str) -> list[str]:
     changed: bool = False
-    if len(line) > 2:
-        if line[0] == '!':
-            changed = True
-            line = "<!-- " + line + "-->"
-            commands: list[str] = find_text_between_delimiters(line)
-            for c in commands:
-                exec(c)
-        elif line[0] == '?' and line[1] == ':':
-            changed = True
-            commands: list[str] = find_text_between_delimiters(line)
-            for c in commands:
-                line = eval(c)
-        elif line[0] == '?' and line[1] == '/':
-            changed = True
-            while not (line[-3] == '/' and line[-2] == '?' and line[-1] == '\n'):
-                line += file.readline()
-            commands: list[str] = find_text_between_delimiters(line)
-            for c in commands:
-                line = eval(c)
+    if len(line) < 3:
+        return [line]
+    
+    if line[0] == '!':
+        changed = True
+        line = "<!-- " + line + "-->"
+        commands: list[str] = find_text_between_delimiters(line)
+        for c in commands:
+            exec(c)
+    elif line[0] == '?' and line[1] == ':':
+        changed = True
+        commands: list[str] = find_text_between_delimiters(line)
+        for c in commands:
+            line = eval(c)
+    elif line[0] == '?' and line[1] == '/':
+        changed = True
+        while not (line[-3] == '/' and line[-2] == '?' and line[-1] == '\n'):
+            line += file.readline() # this is defined in process_template and somehow works still
+        commands: list[str] = find_text_between_delimiters(line)
+        for c in commands:
+            line = eval(c)
     if changed:
         return line.split('\n')
     else:
@@ -144,7 +146,7 @@ def iterate_through_files(dir: str, files: list[str]):
     for file_ in files:
         if os.path.isdir(dir + file_) and file_[0] != "_":
             iterate_through_files(dir + file_ + "/", os.listdir(dir + file_))
-        if ".t.html" in file_:
+        elif ".t.html" in file_:
             process_template(dir, file_)
 
 iterate_through_files(template_dir, files)
