@@ -11,7 +11,7 @@ def get_posts() -> str:
             if line[0] == '#':
                 posts.append([line[2:], ""])
             else:
-                posts[-1][1] += line
+                posts[-1][1] += line + " "
     output: str = ""
     for post_ in posts:
         output += post(post_[0], post_[1])
