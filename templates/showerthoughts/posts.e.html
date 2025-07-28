@@ -1,6 +1,6 @@
 # 2025-07-27
 <h1>the unspoken openxr vendor extension</h1>
-<p>XR_MNDX_xdev_space</p>
+<p><b>XR_MNDX_xdev_space</b></p>
 <p>
   have you ever heard of this<br />
   probably not, because there is less than a page of google search results when
@@ -11,9 +11,26 @@
     >this is the only proof</a
   >
   i've seen of its existence outside of people asserting that it exists<br />
-  today i join the internet canon of websites mentioning XR_MNDX_xdev_space<br />
+  today i join the internet canon of websites mentioning
+  <b>XR_MNDX_xdev_space</b><br />
   not even khronos group's website mentions this even though they are literally
   the creators of the openxr specification<br />
+</p>
+<p>
+  yeah uh i encountered this trying to figure out how to get fbt working in a
+  bevy xr app i was making. i wanted to make a vr ddr pad as an open xr overlay
+  to use while in vrchat. turns out bevy xr doesn't support fbt and you have to
+  write in support yourself, and monado / wivrn on linux supposedly only use the
+  <code>XR_MNDX_xdev_space</code> extension instead of using
+  <code> XR_HTCX_vive_tracker_interaction </code> because why not i guess. why
+  use the standard vendor extension for vive trackers when you can make a new
+  one
+</p>
+<p>
+  this is what i get for trying to develop xr apps on linux. well also i haven't
+  seen any way to make a open xr overlay in unity anyways so i'd still either
+  need to use raw open xr or bevy xr. contact me on discord at
+  <b>dicedmangoes</b> if you know how to do it in unity or godot
 </p>
 
 # 2025-07-24
