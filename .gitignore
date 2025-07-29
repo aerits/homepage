@@ -3,3 +3,4 @@ __pycache__
 *.html
 !*.t.html
 !*.e.html
+.direnv

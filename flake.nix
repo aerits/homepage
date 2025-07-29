@@ -21,6 +21,7 @@
           mkShell {
             buildInputs = [
               python3
+              ruff
             ];
           };
       }
