@@ -1,3 +1,24 @@
+# 2025-07-28
+<p>
+  i have updated <b>diced-ssg</b> to have separate pages for each post. <br />
+  idk why im calling them permalinks, the link id is just the hash of the post,
+  so if i edit the post, its link will change
+</p>
+<p>
+  the requirements for adding this has massively overcomplicated
+  <b>diced-ssg</b> now.<br />
+  instead of just having a simple look at each template, run the macros once,
+  then evaluate the template<br />
+  now it can generate templates during that first pass (only using a python
+  script run in the html, did not add to the .t.html syntax yet), i have
+  constrained it to only generate templates in a different folder for it to
+  work<br />
+  so it creates a new folder where you should put the templates, you put them in
+  it, then it runs macros and evaluates those templates<br />
+  was it worth it? maybe<br />
+  could there have been a simpler solution? probably not lmao<br />
+</p>
+
 # 2025-07-27
 <p>
   new thing on the list of things todo: make my website put posts on separate
@@ -15,7 +36,9 @@
   you search it up.<br />
   from what i understand, its an openxr extension for generic trackers in xr
   like vive trackers.<br />
-  <a href="https://github.com/LordOfDragons/dragengine/issues/21">this is the only proof</a>
+  <a href="https://github.com/LordOfDragons/dragengine/issues/21"
+    >this is the only proof</a
+  >
   i've seen of its existence outside of people asserting that it exists<br />
   today i join the internet canon of websites mentioning
   <b>XR_MNDX_xdev_space</b><br />
@@ -40,11 +63,14 @@
 </p>
 <h2>update: 7-28-2025</h2>
 <p>
-  I have indirectly caused this to get implemented in a fork of bevy xr <br>
-  <a href="https://github.com/Schmarni-Dev/bevy_openxr/tree/mndx_xdev_spaces">here</a> <br>
-  well time to make my vr ddr pad!!!<br>
-  i'm excited because the implementation works really well<br>
-  all i need to do now is measure foot velocity for the pad to work<br>
+  I have indirectly caused this to get implemented in a fork of bevy xr <br />
+  <a href="https://github.com/Schmarni-Dev/bevy_openxr/tree/mndx_xdev_spaces"
+    >here</a
+  >
+  <br />
+  well time to make my vr ddr pad!!!<br />
+  i'm excited because the implementation works really well<br />
+  all i need to do now is measure foot velocity for the pad to work<br />
 </p>
 
 # 2025-07-24
@@ -104,8 +130,7 @@
   />
 </p>
 
-# 2025-06-20 
-mario kart world is so peak <br />
+# 2025-06-20 mario kart world is so peak <br />
 the tracks are some of the best in the series <br />
 the tech is so good <br />
 its weird how mechanically deep rails are, hopping onto rails takes skill <br />
@@ -114,8 +139,7 @@ you <br />
 airship fortress is practically a whole new track when you spend half of it on
 rails<br />
 
-# 2025-06-20 
-ok im trying to make a pixel art -> voxel thing and it appears that
+# 2025-06-20 ok im trying to make a pixel art -> voxel thing and it appears that
 you can't make a voxel model for every possible set of 6 images for the 6
 viewing angles of a model <br />
 maybe instead i'll just make a voxel editor that is easy to use <br />
@@ -124,34 +148,27 @@ i really want to make my own version of mario kart, im putting ppte on hiatus
 and i need a bunch of 3d models to make a mario kart, so thats why im making a
 voxel maker <br />
 
-# 2025-06-02 
-only 3 days until mario kart world!!! 
-
-# 2025-05-30 
-...why does megaman zero's ost cost more than mario kart world
+# 2025-06-02 only 3 days until mario kart world!!! # 2025-05-30 ...why does
+megaman zero's ost cost more than mario kart world
 <p><img src="megaman.png" /></p>
 
-# 2025-05-30 
-if you can include arbitrary circuits on an nes cartridge, could
+# 2025-05-30 if you can include arbitrary circuits on an nes cartridge, could
 you have fit a snes on a nes cartridge <br />
 
-# 2025-06-03 
-2 days until switch 2<br />
+# 2025-06-03 2 days until switch 2<br />
 in 2 days i will go to <b>costco</b> at the opening<br />
 hopefully they will have switch 2's and not sell out immediately<br />
 cant believe its almost here<br />
 last year i predicted it would launch last summer. it did not<br />
 well at least i was only 1 year off, got the season right<br />
 
-# 2025-06-03 
-i want to rewrite <b>diced-ssg</b> in rust<br />
+# 2025-06-03 i want to rewrite <b>diced-ssg</b> in rust<br />
 theres no performance issues so far but i would like it to scale to a larger
 site easily<br />
 you can still run python code in rust with pyo3<br />
 so my hacky solution to writing python on html should still be doable<br />
 
-# 2025-06-06 
-really stupid idea but hear me out<br />
+# 2025-06-06 really stupid idea but hear me out<br />
 steering wheel input for pc using a nintendo 3ds, use the 3ds gyro for wheel
 position<br />
 TODO next week<br />

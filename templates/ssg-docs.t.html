@@ -1,7 +1,13 @@
 <h1>Documentation for <a href="generator.py">diced-ssg (link to script)</a></h1>
-<p>diced-ssg is a simple static site generator that takes inspiration from emacs org mode (but less thought out)</p>
+<p>
+  diced-ssg is a simple static site generator that takes inspiration from emacs
+  org mode (but less thought out)
+</p>
 <p>i'm writing the docs so i don't forget how this works</p>
-<p>directory structure should look like this with <code>generator.py</code> in the root folder</p>
+<p>
+  directory structure should look like this with <code>generator.py</code> in
+  the root folder
+</p>
 <pre>
 .
 ├── cinamorol.jpg
@@ -18,83 +24,119 @@
 </pre>
 <p>built files are placed in the root folder</p>
 <p><code>/templates</code> is where the meat goes</p>
-<p><code>.t.html</code> files are templates, any file with this in its name will be sandwhiched in
-    <code>template.html</code> and placed inside of the main-content html tag
+<p>
+  <code>.t.html</code> files are templates, any file with this in its name will
+  be sandwhiched in <code>template.html</code> and placed inside of the
+  main-content html tag
 </p>
 <ul>
-    <li>the stylesheet comment is a macro to place <code>style.css?v=(random number)</code>
-        in the stylesheet for the page
-    </li>
+  <li>
+    the stylesheet comment is a macro to place
+    <code>style.css?v=(random number)</code>
+    in the stylesheet for the page
+  </li>
 </ul>
 <div class="block-head">file::./templates/template.html::40:: html</div>
 
 <p>div class= "block-head" is for macros</p>
 <ul>
-    <li>file macros
-        <ul>
-            <li><code>file::(path to file)::(max lines to place on page)::</code></li>
-            <li>file has 2 args, the path and the max lines</li>
-            <li>this is used above to show template.html</li>
-        </ul>
-    </li>
-    <li>sorted block macros
-        <ul>
-            <li><b>basic usage</b></li>
-            <ul>
-                <li>this sorts a region</li>
-                <li>see example 1</li>
-                <li>in a block-head div, <code>sorted::begin::</code> starts a sorted section
-                    and <code>sorted::end::</code> ends it</li>
-                <li>every root level html element in the sorted block must have
-                    <b>class="sorted-element"</b> or else the script crashes
-                </li>
-                <li>this is useful for sorting dates</li>
-                <li>FOOTGUN: this sorts the entire line, including
-                    <code>&lt;p class=...&gt;</code>
-                </li>
-            </ul>
+  <li>
+    file macros
+    <ul>
+      <li><code>file::(path to file)::(max lines to place on page)::</code></li>
+      <li>file has 2 args, the path and the max lines</li>
+      <li>this is used above to show template.html</li>
+    </ul>
+  </li>
+  <li>
+    sorted block macros
+    <ul>
+      <li><b>basic usage</b></li>
+      <ul>
+        <li>this sorts a region</li>
+        <li>see example 1</li>
+        <li>
+          in a block-head div, <code>sorted::begin::</code> starts a sorted
+          section and <code>sorted::end::</code> ends it
+        </li>
+        <li>
+          every root level html element in the sorted block must have
+          <b>class="sorted-element"</b> or else the script crashes
+        </li>
+        <li>this is useful for sorting dates</li>
+        <li>
+          FOOTGUN: this sorts the entire line, including
+          <code>&lt;p class=...&gt;</code>
+        </li>
+      </ul>
 
-            <li><b>custom sorts</b></li>
-            <ul>
-
-                <li><code>::"sort-command":"_list.(insert command)"::</code></li>
-                <li>this is a block-head argument, just like <code>::begin::</code>,
-                    you can chain them together like
-                    <code>::begin::"sort-command"...</code>
-                </li>
-                <li>add this to the block-head, its json</li>
-                <li>the sort command gets <code>eval(..)</code>ed in python</li>
-                <li>if you put invalid json it throws a runtime error</li>
-                <li>if you put a bad command for sort command it will crash</li>
-            </ul>
-        </ul>
-    </li>
+      <li><b>custom sorts</b></li>
+      <ul>
+        <li><code>::"sort-command":"_list.(insert command)"::</code></li>
+        <li>
+          this is a block-head argument, just like <code>::begin::</code>, you
+          can chain them together like
+          <code>::begin::"sort-command"...</code>
+        </li>
+        <li>add this to the block-head, its json</li>
+        <li>the sort command gets <code>eval(..)</code>ed in python</li>
+        <li>if you put invalid json it throws a runtime error</li>
+        <li>if you put a bad command for sort command it will crash</li>
+      </ul>
+    </ul>
+  </li>
 </ul>
 
 <h2>example 1</h2>
-<div class="block-head">file::./templates/examples/ssg-docs-example1.e.html::</div>
+<div class="block-head">
+  file::./templates/examples/ssg-docs-example1.e.html::
+</div>
 
-<h1>advanced usage
-</h1>
+<h1>advanced usage</h1>
 <p>custom python commands can be executed</p>
 <p>showerthoughts.py is imported and used</p>
 <p>custom is a global variable that can be anything</p>
-<p>here we set it to the get_posts() function from showerthoughts.py so we can run that function</p>
+<p>
+  here we set it to the get_posts() function from showerthoughts.py so we can
+  run that function
+</p>
 <div class="block-head">file::./templates/showerthoughts/posts.e.html::5::</div>
 <div class="block-head">file::./templates/showerthoughts.py::</div>
 <div class="block-head">file::./templates/blog-posts.t.html::10::</div>
-<p>as you can see i have reinvented markdown by loading the file contents
-    from posts into showerthoughts except its sorted
+<p>
+  as you can see i have reinvented markdown by loading the file contents from
+  posts into showerthoughts except its sorted
+</p>
+<p>
+  also <code> showerthoughts.py </code> is massively overcomplicated, 90% of the
+  code is for creating a summary from the post without cutting out a html
+  closing tag. it also generates new templates programmatically for each post,
+  so that each post has a page.
+</p>
+<p>
+  the only way to have a template generate a template is with custom python
+  commands at the moment, and the generated templates need to be put in
+  <code> ./gen-templates/ </code> and the generated template is not allowed to
+  generate its own templates.
 </p>
 <ul>
-    <li>! is for exec-ing python code</li>
-    <li>? sets the current line in the .t.html to the output of the expression from eval()</li>
-    <li>?/ ... /? is a multiline ?</li>
-    <li>each of these has one argument encased in ::...:: which is the command to run</li>
-    <li>custom python commands get run before anything else, so they can be placed in the sorted block</li>
+  <li>! is for exec-ing python code</li>
+  <li>
+    ? sets the current line in the .t.html to the output of the expression from
+    eval()
+  </li>
+  <li>?/ ... /? is a multiline ?</li>
+  <li>
+    each of these has one argument encased in ::...:: which is the command to
+    run
+  </li>
+  <li>
+    custom python commands get run before anything else, so they can be placed
+    in the sorted block
+  </li>
 </ul>
 
 <h1>todos</h1>
 <ul>
-    <li>make error handling actually good</li>
+  <li>make error handling actually good</li>
 </ul>
