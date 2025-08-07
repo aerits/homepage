@@ -16,7 +16,7 @@ def truncater(s: str, title: str, summary_length: int) -> tuple[str, bool]:
     open_tags: Iterator[str] = re.findall(r'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>', first_half) # type: ignore
     closed_tags: Iterator[str] = re.findall(r'</([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>', first_half) # type: ignore
 
-    open_tags = filter(lambda x: "br" not in x and "hr" not in x, open_tags)
+    open_tags = filter(lambda x: not ("br" in x or "hr" in x), open_tags)
     at = list(open_tags)
     nt = list(closed_tags)
     
@@ -28,7 +28,7 @@ def truncater(s: str, title: str, summary_length: int) -> tuple[str, bool]:
     if nopen_tags > nclosed_tags:
         last_open_tag: re.Match[str] | None = re.search(r'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>', second_half)
         last_closed_tag: re.Match[str] | None = re.search(r'</([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>', second_half)
-        if last_closed_tag is None or (last_open_tag is not None and last_open_tag.end() < last_closed_tag.end()):
+        if (last_closed_tag is None) or (last_open_tag is not None and last_open_tag.end() < last_closed_tag.end()):
             print(f"missing closing tag in {title.strip()}")
         else:
             end = last_closed_tag.end()
